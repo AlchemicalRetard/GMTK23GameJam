@@ -97,7 +97,9 @@ public class Projectile : MonoBehaviour
 
     void DestroyProjectile()
     {
-        Destroy(this.gameObject);
+        gameObject.SetActive(false);
+
+        Destroy(this.gameObject,3f);
     }
 
 }

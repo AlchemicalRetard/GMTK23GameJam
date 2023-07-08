@@ -12,4 +12,9 @@ public class AreaOfEffect : MonoBehaviour
         return damage;
     }
 
+    private void Start()
+    {
+        Destroy(gameObject,lifeTime);
+    }
+
 }
