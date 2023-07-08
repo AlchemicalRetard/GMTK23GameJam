@@ -5,30 +5,25 @@ using UnityEngine.Pool;
 
 public class PlayerShooting : MonoBehaviour
 {
+    [Header("References")]
     [SerializeField] Transform firePoint;
     [SerializeField] GameObject featherBullet;
     [SerializeField] GameObject eggMissile;
 
+    [Header("Speeds")]
     [SerializeField] float bulletSpeed;
     [SerializeField] float missileSpeed;
 
-    [SerializeField] Vector2 mousePos;
-    Camera cam;
-    ObjectPool<Projectile> featherBulletPool;
+    [Header("For Debug Purposes Dont change lmao")]
+    [SerializeField] Vector3 mousePos;
+    [SerializeField] Vector3 shootDirection;
 
-    bool isMissile;
+    Camera cam;
 
     // Start is called before the first frame update
     void Start()
     {
         cam = Camera.main;
-
-        //featherBulletPool = new ObjectPool<Projectile>(
-        //() =>
-        //{
-        //    //return Instantiate(feather)    
-        //},
-        //)
     }
 
     // Update is called once per frame
@@ -36,20 +31,29 @@ public class PlayerShooting : MonoBehaviour
     {
         mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
 
-
         if (Input.GetButtonDown("Fire1"))
         {
             // shoot a bullet
+            shootDirection = (mousePos - transform.position).normalized;
+            SpawnFeatherBullet();
         }
         if (Input.GetKeyDown(KeyCode.E))
         {
             // shoot a bomb missile thing which then lands on mouseClick position
+            shootDirection = (mousePos - transform.position).normalized;
+            SpawnEggMissile();
         }
     }
 
     void SpawnFeatherBullet()
     {
-        GameObject feather = Instantiate(featherBullet) as GameObject;
-        feather.GetComponent<Projectile>().InitProjectile(firePoint.transform.position, mousePos, firePoint.up, bulletSpeed);
+        var bullet = Instantiate(featherBullet,transform.position,transform.rotation).GetComponent<Projectile>();
+        bullet.InitProjectile(mousePos, shootDirection, bulletSpeed);
+    }
+
+    private void SpawnEggMissile()
+    {
+        var missile = Instantiate(eggMissile, transform.position, transform.rotation).GetComponent<Projectile>();
+        missile.InitProjectile(mousePos, shootDirection, missileSpeed,true);    
     }
 }

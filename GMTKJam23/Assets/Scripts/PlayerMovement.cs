@@ -8,6 +8,11 @@ public class PlayerMovement : MonoBehaviour
     
     [SerializeField] float normalMoveSpeed = 5f;
     [SerializeField] float rageMoveSpeed = 10f;
+    [SerializeField] SpriteRenderer spriteRenderer;
+    [SerializeField] Color getHitColor;
+    [SerializeField] float getHitFlashDelay;
+    [SerializeField] int getHitFlashFrequency = 1;
+
     float currentMoveSpeed;
     Vector2 moveDirection;
     Vector2 mousePos;
@@ -18,6 +23,7 @@ public class PlayerMovement : MonoBehaviour
     void Awake()
     {
         currentMoveSpeed = normalMoveSpeed;
+        spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     void Update()
@@ -25,6 +31,21 @@ public class PlayerMovement : MonoBehaviour
         moveDirection.y = Input.GetAxisRaw("Vertical");
         moveDirection.x = Input.GetAxisRaw("Horizontal");
 
+    }
+
+    public void GetHit()
+    {
+        for (int i = 0; i < getHitFlashFrequency; i++)
+        {
+            spriteRenderer.color = getHitColor;
+            StartCoroutine(SetColorNormalAfterTime(0.2f));
+        }
+    }
+
+    IEnumerator SetColorNormalAfterTime(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        spriteRenderer.color = Color.white;
     }
 
     void FixedUpdate()

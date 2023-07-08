@@ -1,24 +1,39 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.Pool;
 
 public class Projectile : MonoBehaviour
 {
+    [SerializeField] Rigidbody2D rb;
     [SerializeField] bool isMissile;
+    [SerializeField] float projectileLifetime= 5f;
+    [SerializeField] float moveSpeed = 5f;
+    [SerializeField] int damage = 10;
+    [SerializeField] GameObject areaOfEffectExplosion;
 
     Vector2 moveDirection;
     Vector2 missileLandPosition;
     Vector2 mousePos;
 
-    Rigidbody2D rb;
+    Action<Projectile> destroyAction;
 
-    float moveSpeed = 5f;
 
-    
 
-    public void InitProjectile(Vector3 startPosition,Vector2 mousePosition, Vector2 direction, float speed,bool isEgg = false)
+    private void Start()
     {
-        transform.position = startPosition;
+
+        rb.velocity = moveDirection.normalized * moveSpeed;
+
+        Invoke(nameof(DestroyProjectile), projectileLifetime);
+    }
+
+
+    public void InitProjectile(Vector2 mousePosition, Vector2 direction, float speed,bool isEgg = false)
+    {
+        
         missileLandPosition = mousePosition;
         moveDirection = direction;  
         moveSpeed = speed;
@@ -29,20 +44,60 @@ public class Projectile : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (isMissile)
+        if(!isMissile)
         {
-            Vector2 desiredPosition = Vector2.MoveTowards(transform.position, missileLandPosition, Time.deltaTime * moveSpeed);
-            rb.MovePosition(desiredPosition);
-        }
-        else
-        {
-            rb.MovePosition(rb.position + moveDirection * moveSpeed * Time.fixedDeltaTime);
+            rb.velocity = moveDirection.normalized * moveSpeed;
         }
     }
 
-    void DestroyBullet(float delay = 0)
+    private void Update()
     {
-        Destroy(gameObject,delay);
+        if (isMissile)
+        {
+            float distance = Vector2.Distance(transform.position, missileLandPosition);
+            Debug.Log("is Egg at da position?? hmm??"+Equals(transform.position, missileLandPosition));
+
+            if (!Equals(transform.position,missileLandPosition))
+            {
+                transform.position = Vector2.MoveTowards(transform.position, missileLandPosition, moveSpeed * Time.deltaTime +Time.deltaTime);
+            }
+            else
+            {
+                Instantiate(areaOfEffectExplosion, transform.position, Quaternion.identity);
+                DestroyProjectile();
+            }
+
+        }
+    }
+
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+       if (other.CompareTag("Enemy"))
+       {
+            other.TryGetComponent(out Health enemyHealth);
+
+            if (isMissile)
+            {
+                var areaOfEffectFX = Instantiate(areaOfEffectExplosion, transform.position, Quaternion.identity).GetComponent<AreaOfEffect>();
+                enemyHealth.TakeDamage(areaOfEffectFX.GetDamage());
+
+                Destroy(areaOfEffectFX, 0.5f);
+            }
+            else
+            {
+                enemyHealth.TakeDamage(damage);
+            }
+
+            DestroyProjectile();
+       }
+       
+    }
+
+
+    void DestroyProjectile()
+    {
+        Destroy(this.gameObject);
     }
 
 }
