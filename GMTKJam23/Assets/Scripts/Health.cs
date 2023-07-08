@@ -9,12 +9,16 @@ public class Health : MonoBehaviour
     [SerializeField] GameObject deathFX;
     [SerializeField] float deathFXDestroyDelay = 2f;
     [SerializeField] bool isPlayer;
+    //public HealthBarBehaviour healthBar;
 
     bool isInvincible;
 
     private void Start()
     {
         currentHealth = maxHealth;
+        // Set initial health in the health bar at start
+       // healthBar.SetHealth(currentHealth, maxHealth);
+
     }
 
     public void TakeDamage(int damage)
