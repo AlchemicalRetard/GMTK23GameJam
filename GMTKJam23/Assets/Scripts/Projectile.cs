@@ -9,8 +9,10 @@ public class Projectile : MonoBehaviour
 {
     [SerializeField] Rigidbody2D rb;
     [SerializeField] bool isMissile;
-    [SerializeField]float projectileLifetime= 5f;
-    [SerializeField]float moveSpeed = 5f;
+    [SerializeField] float projectileLifetime= 5f;
+    [SerializeField] float moveSpeed = 5f;
+    [SerializeField] int damage = 10;
+    [SerializeField] GameObject areaOfEffectExplosion;
 
     Vector2 moveDirection;
     Vector2 missileLandPosition;
@@ -53,15 +55,15 @@ public class Projectile : MonoBehaviour
         if (isMissile)
         {
             float distance = Vector2.Distance(transform.position, missileLandPosition);
-            Debug.Log(distance);
+            Debug.Log("is Egg at da position?? hmm??"+Equals(transform.position, missileLandPosition));
 
-            if (distance > 0.1f)
+            if (!Equals(transform.position,missileLandPosition))
             {
-                Vector2 newPosition = Vector2.Lerp(transform.position, missileLandPosition, moveSpeed * Time.deltaTime);
-                transform.position = newPosition;
+                transform.position = Vector2.MoveTowards(transform.position, missileLandPosition, moveSpeed * Time.deltaTime +Time.deltaTime);
             }
             else
             {
+                Instantiate(areaOfEffectExplosion, transform.position, Quaternion.identity);
                 DestroyProjectile();
             }
 
@@ -71,10 +73,25 @@ public class Projectile : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Enemy"))
-        {
+       if (other.CompareTag("Enemy"))
+       {
+            other.TryGetComponent(out Health enemyHealth);
+
+            if (isMissile)
+            {
+                var areaOfEffectFX = Instantiate(areaOfEffectExplosion, transform.position, Quaternion.identity).GetComponent<AreaOfEffect>();
+                enemyHealth.TakeDamage(areaOfEffectFX.GetDamage());
+
+                Destroy(areaOfEffectFX, 0.5f);
+            }
+            else
+            {
+                enemyHealth.TakeDamage(damage);
+            }
+
             DestroyProjectile();
-        }
+       }
+       
     }
 
 

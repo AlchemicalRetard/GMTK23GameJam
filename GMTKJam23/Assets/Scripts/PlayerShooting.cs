@@ -5,19 +5,20 @@ using UnityEngine.Pool;
 
 public class PlayerShooting : MonoBehaviour
 {
+    [Header("References")]
     [SerializeField] Transform firePoint;
     [SerializeField] GameObject featherBullet;
     [SerializeField] GameObject eggMissile;
 
+    [Header("Speeds")]
     [SerializeField] float bulletSpeed;
     [SerializeField] float missileSpeed;
 
+    [Header("For Debug Purposes Dont change lmao")]
     [SerializeField] Vector3 mousePos;
     [SerializeField] Vector3 shootDirection;
 
     Camera cam;
-
-
 
     // Start is called before the first frame update
     void Start()
@@ -30,8 +31,6 @@ public class PlayerShooting : MonoBehaviour
     {
         mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
 
-        
-
         if (Input.GetButtonDown("Fire1"))
         {
             // shoot a bullet
@@ -43,7 +42,6 @@ public class PlayerShooting : MonoBehaviour
             // shoot a bomb missile thing which then lands on mouseClick position
             shootDirection = (mousePos - transform.position).normalized;
             SpawnEggMissile();
-
         }
     }
 
@@ -58,8 +56,4 @@ public class PlayerShooting : MonoBehaviour
         var missile = Instantiate(eggMissile, transform.position, transform.rotation).GetComponent<Projectile>();
         missile.InitProjectile(mousePos, shootDirection, missileSpeed,true);    
     }
-
-   
-    
-
 }
