@@ -9,7 +9,9 @@ public class Enemy : MonoBehaviour
     [SerializeField] int getHitFlashFrequency;
     [SerializeField] Color getHitColor;
     [SerializeField] SpriteRenderer spriteRenderer;
+    [SerializeField] float attackDelay = 1f;
 
+    Coroutine attackCoroutine;
 
     // Start is called before the first frame update
     void Start()
@@ -18,12 +20,24 @@ public class Enemy : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
-    {
+    private void OnTriggerStay(Collider other)
+    {    
+        Debug.Log("Stopping Coroutine");
+
         if(other.CompareTag("Player") && other.TryGetComponent<Health>(out Health playerHealth))
         {
-            // anim.Play("AttackAnim");
-            playerHealth.TakeDamage(damage);
+            Debug.Log("Starting Coroutine");
+            attackCoroutine =  StartCoroutine(WaitAndAttack(attackDelay, playerHealth));
+        }
+    }
+    
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Player") && other.TryGetComponent<Health>(out Health playerHealth))
+        {
+            Debug.Log("Stopping Coroutine");
+            StopCoroutine(attackCoroutine);
         }
     }
 
@@ -35,6 +49,14 @@ public class Enemy : MonoBehaviour
             StartCoroutine(SetColorNormalAfterTime(0.2f));
         }
     }
+
+    IEnumerator WaitAndAttack(float delay, Health playerHealth)
+    {
+        yield return new WaitForSeconds(delay);
+        playerHealth.TakeDamage(damage);
+        // anim.Play("AttackAnim");
+    }
+
 
     IEnumerator SetColorNormalAfterTime(float delay)
     {

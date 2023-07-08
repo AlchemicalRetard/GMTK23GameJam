@@ -44,31 +44,38 @@ public class Projectile : MonoBehaviour
 
     void FixedUpdate()
     {
-        if(!isMissile)
-        {
-            rb.velocity = moveDirection.normalized * moveSpeed;
-        }
+
+        rb.velocity = moveDirection.normalized * moveSpeed;
+
+        // Old Bullet Movement
+        //if(!isMissile)
+        //{
+        //    rb.velocity = moveDirection.normalized * moveSpeed;
+        //}
     }
 
-    private void Update()
-    {
-        if (isMissile)
-        {
-            float distance = Vector2.Distance(transform.position, missileLandPosition);
-            Debug.Log("is Egg at da position?? hmm??"+Equals(transform.position, missileLandPosition));
+    #region old Stuff
+    //private void Update()
+    //{
+    //    // Old Missile Movement
+    //    if (isMissile)
+    //    {
+    //        float distance = Vector2.Distance(transform.position, missileLandPosition);
+    //        Debug.Log("is Egg at da position?? hmm??"+Equals(transform.position, missileLandPosition));
 
-            if (!Equals(transform.position,missileLandPosition))
-            {
-                transform.position = Vector2.MoveTowards(transform.position, missileLandPosition, moveSpeed * Time.deltaTime +Time.deltaTime);
-            }
-            else
-            {
-                Instantiate(areaOfEffectExplosion, transform.position, Quaternion.identity);
-                DestroyProjectile();
-            }
+    //        if (!Equals(transform.position,missileLandPosition))
+    //        {
+    //            transform.position = Vector2.MoveTowards(transform.position, missileLandPosition, moveSpeed * Time.deltaTime +Time.deltaTime);
+    //        }
+    //        else
+    //        {
+    //            Instantiate(areaOfEffectExplosion, transform.position, Quaternion.identity);
+    //            DestroyProjectile();
+    //        }
 
-        }
-    }
+    //    }
+    //}
+    #endregion
 
 
     private void OnTriggerEnter2D(Collider2D other)

@@ -5629,6 +5629,7 @@ MonoBehaviour:
   getHitFlashFrequency: 3
   getHitColor: {r: 1, g: 0.3160377, b: 0.3160377, a: 1}
   spriteRenderer: {fileID: 346781110}
+  attackDelay: 1
 --- !u!114 &346781115
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16834,7 +16835,7 @@ MonoBehaviour:
   eggMissile: {fileID: 4000799729521079191, guid: 85beaf7e892b4cf449e2dbdaf2182be8,
     type: 3}
   bulletSpeed: 50
-  missileSpeed: 20
+  missileSpeed: 5
   mousePos: {x: 0, y: 0, z: 0}
   shootDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &901373519
@@ -28542,6 +28543,7 @@ MonoBehaviour:
   getHitFlashFrequency: 1
   getHitColor: {r: 1, g: 0.3160377, b: 0.3160377, a: 1}
   spriteRenderer: {fileID: 1449328380}
+  attackDelay: 1
 --- !u!1001 &1478435001
 PrefabInstance:
   m_ObjectHideFlags: 0
