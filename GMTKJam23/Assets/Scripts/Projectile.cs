@@ -89,10 +89,13 @@ public class Projectile : MonoBehaviour
                 var areaOfEffectFX = Instantiate(areaOfEffectExplosion, transform.position, Quaternion.identity).GetComponent<AreaOfEffect>();
 
                 Destroy(areaOfEffectFX, 0.5f);
+                gameObject.SetActive(false);    
             }
             else
             {
+
                 enemyHealth.TakeDamage(damage);
+                GameManager.Instance.AddRage(RageType.KillEnemy);
             }
 
             DestroyProjectile();

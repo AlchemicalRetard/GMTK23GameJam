@@ -13,6 +13,9 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float getHitFlashDelay;
     [SerializeField] int getHitFlashFrequency = 1;
 
+    Animator anim;
+
+
     float currentMoveSpeed;
     Vector2 moveDirection;
     Vector2 mousePos;
@@ -24,6 +27,7 @@ public class PlayerMovement : MonoBehaviour
     {
         currentMoveSpeed = normalMoveSpeed;
         spriteRenderer = GetComponent<SpriteRenderer>();
+        anim = GetComponent<Animator>();
     }
 
     void Update()
@@ -31,13 +35,34 @@ public class PlayerMovement : MonoBehaviour
         moveDirection.y = Input.GetAxisRaw("Vertical");
         moveDirection.x = Input.GetAxisRaw("Horizontal");
 
+        if (!Equals(moveDirection, Vector3.zero))
+        {
+            anim.SetBool("isWalking", true);
+        }
+        else
+        {
+            anim.SetBool("isWalking", false);
+        }
+
+        if (moveDirection.x < 0)
+        {
+            spriteRenderer.flipX = false;
+        }
+        else
+        {
+            spriteRenderer.flipX = true;
+        }
+
     }
 
     public void GetHit()
     {
         for (int i = 0; i < getHitFlashFrequency; i++)
         {
+
             spriteRenderer.color = getHitColor;
+            anim.SetTrigger("Hurt");
+            GameManager.Instance.AddRage(RageType.GetHit);
             StartCoroutine(SetColorNormalAfterTime(0.2f));
         }
     }
@@ -51,6 +76,16 @@ public class PlayerMovement : MonoBehaviour
     void FixedUpdate()
     {
         rb.MovePosition(rb.position + moveDirection * currentMoveSpeed * Time.fixedDeltaTime);        
+    }
+
+    public void StartRage()
+    {
+        currentMoveSpeed = rageMoveSpeed;
+    }
+
+    public void EndRage()
+    {
+        currentMoveSpeed = normalMoveSpeed;
     }
 
     public void Die()

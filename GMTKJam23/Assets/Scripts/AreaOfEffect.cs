@@ -6,7 +6,7 @@ public class AreaOfEffect : MonoBehaviour
 {
     [SerializeField] int damage = 200;
     [SerializeField] float lifeTime = 0.5f;
-
+    
     private void Start()
     {
         Destroy(gameObject, lifeTime);
@@ -20,7 +20,8 @@ public class AreaOfEffect : MonoBehaviour
             //Health enemyHealth;
             if (other.TryGetComponent(out Health enemyHealth))
             {
-               enemyHealth.TakeDamage(damage);
+                enemyHealth.TakeDamage(damage);
+                GameManager.Instance.AddRage(RageType.Explosion);
                 Debug.Log("Damage dealt to " + other.gameObject.name);
             }
             else
