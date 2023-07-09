@@ -95,7 +95,7 @@ public class Projectile : MonoBehaviour
             {
 
                 enemyHealth.TakeDamage(damage);
-                GameManager.Instance.AddRage(RageType.KillEnemy);
+                //GameManager.Instance.AddRage(RageType.KillEnemy);
             }
 
             DestroyProjectile();

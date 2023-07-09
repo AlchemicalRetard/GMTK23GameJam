@@ -45,17 +45,13 @@ public class PlayerShooting : MonoBehaviour
             shootDirection = (mousePos - transform.position).normalized;
             SpawnFeatherBullet();
         }
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKeyDown(KeyCode.E) && !cooldownTime.isEggCooldown)
         {
-            if(!GameManager.Instance.isInRage && !cooldownTime.isEggCooldown || GameManager.Instance.isInRage)
-            {
-                anim.SetTrigger("Attack");
+            anim.SetTrigger("Attack");
 
-                // shoot a bomb missile thing which then lands on mouseClick position
-                shootDirection = (mousePos - transform.position).normalized;
-                SpawnEggMissile();
-            }
-
+            // shoot a bomb missile thing which then lands on mouseClick position
+            shootDirection = (mousePos - transform.position).normalized;
+            SpawnEggMissile();
         }
     }
 

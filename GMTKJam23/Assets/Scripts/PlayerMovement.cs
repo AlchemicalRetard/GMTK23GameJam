@@ -64,7 +64,6 @@ public class PlayerMovement : MonoBehaviour
 
             spriteRenderer.color = getHitColor;
             anim.SetTrigger("Hurt");
-            GameManager.Instance.AddRage(RageType.GetHit);
             StartCoroutine(SetColorNormalAfterTime(0.2f));
         }
     }
