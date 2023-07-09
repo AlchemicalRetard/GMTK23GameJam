@@ -779,7 +779,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &187121582
 RectTransform:
   m_ObjectHideFlags: 0
@@ -800,7 +800,7 @@ RectTransform:
   - {fileID: 1567742319}
   - {fileID: 334218828}
   m_Father: {fileID: 634229912}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1429,8 +1429,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 168, y: 0}
-  m_SizeDelta: {x: 732.08, y: 96.6031}
+  m_AnchoredPosition: {x: 2.9586, y: -1.6984}
+  m_SizeDelta: {x: 605.9568, y: 96.6031}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &472785363
 MonoBehaviour:
@@ -1452,7 +1452,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: SHOOTING -
+  m_text: SHOOTING - LEFT MOUSE CLICK
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: a9f84c4a1e0824d48b5518ce52863d5b, type: 2}
   m_sharedMaterial: {fileID: 1318486564785750777, guid: a9f84c4a1e0824d48b5518ce52863d5b,
@@ -1847,8 +1847,8 @@ RectTransform:
   - {fileID: 1543740813}
   - {fileID: 55097324}
   - {fileID: 986378423}
-  - {fileID: 187121582}
   - {fileID: 1241722920}
+  - {fileID: 187121582}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -8062,7 +8062,7 @@ RectTransform:
   m_Children:
   - {fileID: 1525145820}
   m_Father: {fileID: 634229912}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
