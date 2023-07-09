@@ -67,7 +67,7 @@ public class GameManager : MonoBehaviour
 
     public void AddRage(RageType rageType)
     {
-        if (currentRage < maxRage)
+        /*if (currentRage < maxRage)
         {
             switch (rageType)
             {
@@ -88,8 +88,8 @@ public class GameManager : MonoBehaviour
             canRage = true;
             return;
         }
+    */
     }
-
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Q) && canRage)

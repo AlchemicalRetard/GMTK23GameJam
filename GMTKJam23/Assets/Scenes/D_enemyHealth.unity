@@ -32452,14 +32452,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1c0edd0e13ca4b44831644677728938, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  featherShootSound: {fileID: 0}
-  eggShootSound: {fileID: 0}
+  featherShootSound: {fileID: 8300000, guid: 22d6eb02e4309a942bd677b6b7e16581, type: 3}
+  eggShootSound: {fileID: 8300000, guid: 622cf8039d61981428cc6e7b299a0989, type: 3}
   eggExplosionSound: {fileID: 0}
-  deathMusic: {fileID: 0}
-  noiseLibrary: []
-  enemyDeathSound: {fileID: 0}
-  gameMusic: {fileID: 0}
-  rageModeLayer: {fileID: 0}
+  deathMusic: {fileID: 8300000, guid: 2aadbfa8f9427b14a83c78930aa8b3ce, type: 3}
+  noiseLibrary:
+  - {fileID: 8300000, guid: 0c45e031d5eb5a34b8ec457428b37cc1, type: 3}
+  - {fileID: 8300000, guid: efdda1fb578c64a4f866cda1499ab4b6, type: 3}
+  enemyDeathSound: {fileID: 8300000, guid: 95904b6a91a49334c93dff6b85b1da9e, type: 3}
+  gameMusic: {fileID: 8300000, guid: f8d9c415c400e674e990c4124984d453, type: 3}
+  rageModeLayer: {fileID: 8300000, guid: 95d92827dd7e97e499634647a3b5474d, type: 3}
+  menuMusic: {fileID: 8300000, guid: f8d9c415c400e674e990c4124984d453, type: 3}
 --- !u!4 &1621711581
 Transform:
   m_ObjectHideFlags: 0
@@ -32473,7 +32476,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 17
+  m_RootOrder: 18
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1626953763
 PrefabInstance:
@@ -35555,7 +35558,7 @@ Transform:
   - {fileID: 224591321}
   - {fileID: 666764589}
   m_Father: {fileID: 0}
-  m_RootOrder: 16
+  m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1819611204
 PrefabInstance:
@@ -37715,7 +37718,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 15
+  m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1922891210
 PrefabInstance:

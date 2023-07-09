@@ -63,12 +63,14 @@ public class PlayerShooting : MonoBehaviour
     {
         var bullet = Instantiate(featherBullet, transform.position, transform.rotation).GetComponent<Projectile>();
         bullet.InitProjectile(mousePos, shootDirection, currentBulletSpeed);
+        AudioManager.Instance.PlayFeatherShootSound();
     }
 
     private void SpawnEggMissile()
     {
         var missile = Instantiate(eggMissile, transform.position, transform.rotation).GetComponent<Projectile>();
         missile.InitProjectile(mousePos, shootDirection, missileSpeed, true);
+        AudioManager.Instance.PlayEggShootSound();
     }
 
     public void StartRage()
