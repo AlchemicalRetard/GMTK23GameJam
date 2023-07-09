@@ -24,7 +24,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] int rageWhenHit = 300;
     [SerializeField] int rageWhenEggsplosion = 200;
 
-    int[] rageArray = new int[2];
+    int[] rageArray = new int[3];
 
     private PlayerMovement playerMovement;
     private PlayerShooting playerShooting;
@@ -45,7 +45,7 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        rageArray = new int[] {rageWhenHit,rageWhenKill};
+        rageArray = new int[] {rageWhenHit,rageWhenKill,rageWhenEggsplosion};
     }
 
     public void AddScore(int value)
