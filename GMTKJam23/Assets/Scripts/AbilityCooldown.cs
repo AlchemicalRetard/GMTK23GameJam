@@ -11,7 +11,7 @@ public class AbilityCooldown : MonoBehaviour
     public KeyCode eggKey;
     public float eggCooldown = 10;
 
-    private bool isEggCooldown = false;
+    public bool isEggCooldown = false;
 
     private float currentEggCooldown;
 
