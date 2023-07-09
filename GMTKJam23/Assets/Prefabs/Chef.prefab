@@ -210,8 +210,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 1000
   currentHealth: 0
-  deathFX: {fileID: 0}
-  deathFXDestroyDelay: 0
+  deathFX: {fileID: 4319431792301152806, guid: d561493ba8cb8b64ea9b4b69c8adaeef, type: 3}
+  deathFXDestroyDelay: 0.6
   isPlayer: 0
 --- !u!114 &8984957559137956229
 MonoBehaviour:

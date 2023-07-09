@@ -10,9 +10,8 @@ public class Health : MonoBehaviour
     [SerializeField] GameObject deathFX;
     [SerializeField] float deathFXDestroyDelay = 2f;
     [SerializeField] bool isPlayer;
-    //public HealthBarBehaviour healthBar;
 
-    HealthBarUI healthBarUI;
+    [SerializeField] HealthBarUI healthBarUI;
 
     bool isInvincible;
 
@@ -42,16 +41,11 @@ public class Health : MonoBehaviour
         else { 
 
             currentHealth -= damage;
+            healthBarUI.SetHealth(currentHealth, maxHealth);
 
             if (isPlayer) { this.GetComponent<PlayerMovement>().GetHit(); }
-            else{ 
-                //if(currentHealth == (maxHealth - damage))
-                //{
-                //    this.GetComponentInChildren<HealthBarBehaviour>().gameObject.SetActive(true);
-                //}
-                this.GetComponent<Enemy>().GetHit();
-                healthBarUI.SetHealth(currentHealth,maxHealth);
-            }
+            else{this.GetComponent<Enemy>().GetHit();}
+
 
         }
     }
@@ -62,8 +56,8 @@ public class Health : MonoBehaviour
 
         // Death particle Effect
 
-        //var dethFX = Instantiate(deathFX, transform.position, Quaternion.identity) as GameObject;
-        //Destroy(dethFX, deathFXDestroyDelay);
+        var dethFX = Instantiate(deathFX, transform.position, Quaternion.identity) as GameObject;
+        Destroy(dethFX, deathFXDestroyDelay);
         if (!isPlayer)
         {
             Destroy(gameObject,3f);

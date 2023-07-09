@@ -11,7 +11,10 @@ public class PlayerShooting : MonoBehaviour
     [SerializeField] GameObject eggMissile;
 
     [Header("Speeds")]
-    [SerializeField] float bulletSpeed;
+    [SerializeField] float currentBulletSpeed;
+    Animator anim;
+    [SerializeField] float normalBulletSpeed;
+    [SerializeField] float rageBulletSpeed;
     [SerializeField] float missileSpeed;
 
     [Header("For Debug Purposes Dont change lmao")]
@@ -26,6 +29,8 @@ public class PlayerShooting : MonoBehaviour
     {
         cooldownTime = GetComponent<AbilityCooldown>();
         cam = Camera.main;
+        currentBulletSpeed = normalBulletSpeed;
+        anim = GetComponent<Animator>();
 
     }
 
@@ -40,25 +45,40 @@ public class PlayerShooting : MonoBehaviour
             shootDirection = (mousePos - transform.position).normalized;
             SpawnFeatherBullet();
         }
-        if (Input.GetKeyDown(KeyCode.E)&& !cooldownTime.isEggCooldown)
+        if (Input.GetKeyDown(KeyCode.E))
         {
-            
-            // shoot a bomb missile thing which then lands on mouseClick position
-            shootDirection = (mousePos - transform.position).normalized;
-            SpawnEggMissile();
+            if(!GameManager.Instance.isInRage && !cooldownTime.isEggCooldown || GameManager.Instance.isInRage)
+            {
+                anim.SetTrigger("Attack");
+
+                // shoot a bomb missile thing which then lands on mouseClick position
+                shootDirection = (mousePos - transform.position).normalized;
+                SpawnEggMissile();
+            }
+
         }
     }
 
     void SpawnFeatherBullet()
     {
         var bullet = Instantiate(featherBullet, transform.position, transform.rotation).GetComponent<Projectile>();
-        bullet.InitProjectile(mousePos, shootDirection, bulletSpeed);
+        bullet.InitProjectile(mousePos, shootDirection, currentBulletSpeed);
     }
 
     private void SpawnEggMissile()
     {
         var missile = Instantiate(eggMissile, transform.position, transform.rotation).GetComponent<Projectile>();
         missile.InitProjectile(mousePos, shootDirection, missileSpeed, true);
+    }
+
+    public void StartRage()
+    {
+        currentBulletSpeed = rageBulletSpeed;  
+    }
+
+    public void EndRage()
+    {
+        currentBulletSpeed= normalBulletSpeed;
     }
 }
 

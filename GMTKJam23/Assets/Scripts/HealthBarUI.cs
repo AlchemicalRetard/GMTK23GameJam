@@ -8,9 +8,12 @@ public class HealthBarUI : MonoBehaviour
     public Color healthColor;
     public Vector3 offset;
 
+    public bool isPlayer;
+
     private void Start()
     {
-        slider.gameObject.SetActive(false);
+        if(!isPlayer)
+            slider.gameObject.SetActive(false);
     }
 
     public void SetHealth(float health, float maxHealth)
@@ -23,9 +26,5 @@ public class HealthBarUI : MonoBehaviour
         //slider.fillRect.GetComponentInChildren<Image>().color = Color.Lerp(high, low,slider.normalizedValue);
     }
 
-    private void Update()
-    {
-        // Billboard logic
-        //slider.transform.position = Camera.main.WorldToScreenPoint(transform.parent.position + offset);
-    }
+   
 }
