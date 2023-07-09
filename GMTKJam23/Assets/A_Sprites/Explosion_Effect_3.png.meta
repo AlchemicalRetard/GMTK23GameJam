@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: de06414fd78fc3e43916b47fda98843d
+guid: 69903dd872178d041a931df72be373e8
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -101,41 +101,17 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: Android
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Feather_1
+      name: Explosion_Effect_3_0
       rect:
         serializedVersion: 2
-        x: 1
-        y: 152
-        width: 38
-        height: 57
+        x: 28
+        y: 92
+        width: 26
+        height: 25
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -143,41 +119,41 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: db7c9b4d73e238f42a47180827a5d5c7
-      internalID: -1294904042
+      spriteID: 546ce11f00f64e94f9085ef6d2ebcb73
+      internalID: -1709174585
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Feather_3
+      name: Explosion_Effect_3_1
       rect:
         serializedVersion: 2
-        x: 44
-        y: 152
-        width: 39
-        height: 55
+        x: 54
+        y: 92
+        width: 22
+        height: 25
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8ef39198d543a704d8cbe247634f5a97
-      internalID: 466684634
+      spriteID: 868483088b745fb47b2b4982661f29cd
+      internalID: -1194166211
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Feather_6
+      name: Explosion_Effect_3_2
       rect:
         serializedVersion: 2
-        x: 88
-        y: 152
-        width: 40
-        height: 54
+        x: 0
+        y: 0
+        width: 61
+        height: 70
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -185,20 +161,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fccd094291e49294e8e251f54bdbd1ea
-      internalID: -310403176
+      spriteID: 96dcafe86f9a15144afa1b05afe6e68d
+      internalID: 483057149
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Feather_8
+      name: Explosion_Effect_3_3
       rect:
         serializedVersion: 2
-        x: 133
-        y: 152
-        width: 41
-        height: 53
+        x: 61
+        y: 0
+        width: 61
+        height: 70
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -206,20 +182,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 316cc296a42f9894a884c572fbadff9e
-      internalID: -1833134392
+      spriteID: cb08865403782904b9cc971e0ea2d85a
+      internalID: -1341224885
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Feather_9
+      name: Explosion_Effect_3_4
       rect:
         serializedVersion: 2
-        x: 179
-        y: 152
-        width: 41
-        height: 53
+        x: 122
+        y: 0
+        width: 61
+        height: 70
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -227,20 +203,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2d9c91e79d968114387d0de7fdfb4d41
-      internalID: -440332005
+      spriteID: 0927e417971f0bf47aba22d385ddfc59
+      internalID: 1799840978
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Feather_10
+      name: Explosion_Effect_3_5
       rect:
         serializedVersion: 2
-        x: 225
-        y: 152
-        width: 39
-        height: 54
+        x: 183
+        y: 0
+        width: 61
+        height: 70
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -248,20 +224,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 977082b104f493946b3dd1f09bc6a8f3
-      internalID: 544736658
+      spriteID: 8bb61836453b7e34a9b53c0cd1db36ff
+      internalID: 469316179
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Feather_11
+      name: Explosion_Effect_3_6
       rect:
         serializedVersion: 2
-        x: 269
-        y: 152
-        width: 39
-        height: 55
+        x: 244
+        y: 0
+        width: 61
+        height: 70
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -269,20 +245,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d7c6dde6a15b8a641a7219c98e44f53d
-      internalID: -1210419994
+      spriteID: 716fe46b299e7624b925b97daf91aca9
+      internalID: 1542040092
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Feather_12
+      name: Explosion_Effect_3_7
       rect:
         serializedVersion: 2
-        x: 313
-        y: 152
-        width: 37
-        height: 56
+        x: 305
+        y: 0
+        width: 61
+        height: 70
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -290,20 +266,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 93065eaa2907d7641a4bc3bb5cfc65b9
-      internalID: -1654247065
+      spriteID: 05256dd08d9b95344b26509a937af4de
+      internalID: 1936459733
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Feather_13
+      name: Explosion_Effect_3_8
       rect:
         serializedVersion: 2
-        x: 356
-        y: 152
-        width: 37
-        height: 57
+        x: 366
+        y: 0
+        width: 61
+        height: 70
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -311,20 +287,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cbf9f9b0963d99a47b3249ff8b983d71
-      internalID: -1634080218
+      spriteID: 975a6604b1931364399c7682fc4946d5
+      internalID: 619863294
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Feather_14
+      name: Explosion_Effect_3_9
       rect:
         serializedVersion: 2
-        x: 396
-        y: 152
-        width: 39
-        height: 57
+        x: 427
+        y: 0
+        width: 61
+        height: 70
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -332,8 +308,92 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b649b13008e2aff489260d664c5e442b
-      internalID: -1967216837
+      spriteID: 00139c582f93a654c9f12ad2b0114c70
+      internalID: 1064713941
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Explosion_Effect_3_10
+      rect:
+        serializedVersion: 2
+        x: 488
+        y: 0
+        width: 61
+        height: 70
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 318644f99f4ff1f45b8dd882c70a6eda
+      internalID: 1447794779
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Explosion_Effect_3_11
+      rect:
+        serializedVersion: 2
+        x: 76
+        y: 92
+        width: 14
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3bd38740c71ff4e48870808022f4a415
+      internalID: -562499303
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Explosion_Effect_3_12
+      rect:
+        serializedVersion: 2
+        x: 91
+        y: 95
+        width: 12
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6473ad70a119b184ca8d731aed4a72c3
+      internalID: -316216874
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Explosion_Effect_3_13
+      rect:
+        serializedVersion: 2
+        x: 103
+        y: 99
+        width: 9
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 99ca00b1466284d46bf278e5d8c6db83
+      internalID: 881138130
       vertices: []
       indices: 
       edges: []
@@ -349,29 +409,20 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Feather_1: -1294904042
-      Feather_16: -268544402
-      Feather_0: -868893563
-      Feather_13: -1634080218
-      Feather_9: -440332005
-      Feather_2: 10685176
-      Feather_19: -741245662
-      Feather_14: -1967216837
-      Feather_21: 147437170
-      Feather_20: 220875663
-      Feather_3: 466684634
-      Feather_22: 2106431333
-      Feather_4: 381618941
-      Feather_8: -1833134392
-      Feather_10: 544736658
-      Feather_7: -443913829
-      Feather_15: 1672125175
-      Feather_5: -958338721
-      Feather_11: -1210419994
-      Feather_18: -112385980
-      Feather_17: 1923620842
-      Feather_6: -310403176
-      Feather_12: -1654247065
+      Explosion_Effect_3_1: -1194166211
+      Explosion_Effect_3_6: 1542040092
+      Explosion_Effect_3_2: 483057149
+      Explosion_Effect_3_10: 1447794779
+      Explosion_Effect_3_12: -316216874
+      Explosion_Effect_3_3: -1341224885
+      Explosion_Effect_3_4: 1799840978
+      Explosion_Effect_3_7: 1936459733
+      Explosion_Effect_3_5: 469316179
+      Explosion_Effect_3_11: -562499303
+      Explosion_Effect_3_13: 881138130
+      Explosion_Effect_3_8: 619863294
+      Explosion_Effect_3_9: 1064713941
+      Explosion_Effect_3_0: -1709174585
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

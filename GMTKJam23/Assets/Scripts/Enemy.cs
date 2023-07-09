@@ -1,3 +1,4 @@
+using Pathfinding;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,13 +12,30 @@ public class Enemy : MonoBehaviour
     [SerializeField] SpriteRenderer spriteRenderer;
     [SerializeField] float attackDelay = 1f;
 
+    Transform target;
     Coroutine attackCoroutine;
+    Vector2 distance;
+
 
     // Start is called before the first frame update
     void Start()
     {
         anim = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
+        target = GetComponent<AIDestinationSetter>().target;
+    }
+
+    private void Update()
+    {
+        if((transform.position-target.position).x > 0)
+        {
+            spriteRenderer.flipX = true;
+        }
+        else
+        {
+            spriteRenderer.flipX = false;
+
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -55,6 +73,7 @@ public class Enemy : MonoBehaviour
     {
         while (true)
         {
+            anim.SetTrigger("Attack");
             yield return new WaitForSeconds(delay);
             playerHealth.TakeDamage(damage);
         }
