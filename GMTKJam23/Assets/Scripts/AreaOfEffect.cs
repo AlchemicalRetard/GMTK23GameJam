@@ -21,7 +21,6 @@ public class AreaOfEffect : MonoBehaviour
             if (other.TryGetComponent(out Health enemyHealth))
             {
                 enemyHealth.TakeDamage(damage);
-                GameManager.Instance.AddRage(RageType.Explosion);
                 Debug.Log("Damage dealt to " + other.gameObject.name);
             }
             else

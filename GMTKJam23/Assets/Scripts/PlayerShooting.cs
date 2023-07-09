@@ -45,17 +45,13 @@ public class PlayerShooting : MonoBehaviour
             shootDirection = (mousePos - transform.position).normalized;
             SpawnFeatherBullet();
         }
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKeyDown(KeyCode.E) && !cooldownTime.isEggCooldown)
         {
-            if(!GameManager.Instance.isInRage && !cooldownTime.isEggCooldown || GameManager.Instance.isInRage)
-            {
-                anim.SetTrigger("Attack");
+            anim.SetTrigger("Attack");
 
-                // shoot a bomb missile thing which then lands on mouseClick position
-                shootDirection = (mousePos - transform.position).normalized;
-                SpawnEggMissile();
-            }
-
+            // shoot a bomb missile thing which then lands on mouseClick position
+            shootDirection = (mousePos - transform.position).normalized;
+            SpawnEggMissile();
         }
     }
 
@@ -63,12 +59,14 @@ public class PlayerShooting : MonoBehaviour
     {
         var bullet = Instantiate(featherBullet, transform.position, transform.rotation).GetComponent<Projectile>();
         bullet.InitProjectile(mousePos, shootDirection, currentBulletSpeed);
+        AudioManager.Instance.PlayFeatherShootSound();
     }
 
     private void SpawnEggMissile()
     {
         var missile = Instantiate(eggMissile, transform.position, transform.rotation).GetComponent<Projectile>();
         missile.InitProjectile(mousePos, shootDirection, missileSpeed, true);
+        AudioManager.Instance.PlayEggShootSound();
     }
 
     public void StartRage()
