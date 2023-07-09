@@ -20,24 +20,25 @@ public class Enemy : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
-    private void OnTriggerStay(Collider other)
-    {    
-        Debug.Log("Stopping Coroutine");
-
-        if(other.CompareTag("Player") && other.TryGetComponent<Health>(out Health playerHealth))
-        {
-            Debug.Log("Starting Coroutine");
-            attackCoroutine =  StartCoroutine(WaitAndAttack(attackDelay, playerHealth));
-        }
-    }
-    
-
-    private void OnTriggerExit(Collider other)
+    private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player") && other.TryGetComponent<Health>(out Health playerHealth))
         {
-            Debug.Log("Stopping Coroutine");
-            StopCoroutine(attackCoroutine);
+            Debug.Log("Starting Coroutine");
+            attackCoroutine = StartCoroutine(WaitAndAttack(attackDelay, playerHealth));
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            if (attackCoroutine != null)
+            {
+                Debug.Log("Stopping Coroutine");
+                StopCoroutine(attackCoroutine);
+                attackCoroutine = null;
+            }
         }
     }
 
@@ -52,11 +53,12 @@ public class Enemy : MonoBehaviour
 
     IEnumerator WaitAndAttack(float delay, Health playerHealth)
     {
-        yield return new WaitForSeconds(delay);
-        playerHealth.TakeDamage(damage);
-        // anim.Play("AttackAnim");
+        while (true)
+        {
+            yield return new WaitForSeconds(delay);
+            playerHealth.TakeDamage(damage);
+        }
     }
-
 
     IEnumerator SetColorNormalAfterTime(float delay)
     {

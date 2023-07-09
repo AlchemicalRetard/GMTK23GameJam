@@ -11,4 +11,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/D_enemyHealth.unity
     guid: 95e29d75cf3684545bb98585ec4f9080
+  - enabled: 1
+    path: Assets/Scenes/A_TransitionTestScene.unity
+    guid: f9ad8ec5a4cf9304797971b36d45558d
+  - enabled: 1
+    path: Assets/Scenes/S_Game Duplicate.unity
+    guid: 1123ce3d3e270cc48aded1e7aebf7070
+  - enabled: 1
+    path: Assets/Scenes/S_Game.unity
+    guid: 72e79159292a2d643b3a2a27ad0a74a6
   m_configObjects: {}
