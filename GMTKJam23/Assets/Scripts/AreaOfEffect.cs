@@ -17,22 +17,19 @@ public class AreaOfEffect : MonoBehaviour
     {
         Destroy(gameObject,lifeTime);
 
-       
+      
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        Collider2D[] hitColliders = Physics2D.OverlapCircleAll(transform.position, radius);
-
-        foreach (var hitCollider in hitColliders)
+        if (other.CompareTag("Enemy"))
         {
-            Debug.Log("Enemy HIT !!");
-            if (hitCollider.gameObject.CompareTag("Enemy") && TryGetComponent(out Health enemyHealth))
-            {
-                enemyHealth.TakeDamage(damage);
-            }
-        }
+            other.TryGetComponent(out Health enemyHealth);
+            enemyHealth.TakeDamage(damage);
+        }  
+
     }
+
 
     private void OnDrawGizmos()
     {

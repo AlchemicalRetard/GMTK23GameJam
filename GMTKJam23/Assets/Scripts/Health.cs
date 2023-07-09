@@ -10,7 +10,6 @@ public class Health : MonoBehaviour
     [SerializeField] GameObject deathFX;
     [SerializeField] float deathFXDestroyDelay = 2f;
     [SerializeField] bool isPlayer;
-    //public HealthBarBehaviour healthBar;
 
     HealthBarUI healthBarUI;
 
@@ -62,8 +61,8 @@ public class Health : MonoBehaviour
 
         // Death particle Effect
 
-        //var dethFX = Instantiate(deathFX, transform.position, Quaternion.identity) as GameObject;
-        //Destroy(dethFX, deathFXDestroyDelay);
+        var dethFX = Instantiate(deathFX, transform.position, Quaternion.identity) as GameObject;
+        Destroy(dethFX, deathFXDestroyDelay);
         if (!isPlayer)
         {
             Destroy(gameObject,3f);
