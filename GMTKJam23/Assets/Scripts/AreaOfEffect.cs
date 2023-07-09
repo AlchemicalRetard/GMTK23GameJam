@@ -6,37 +6,31 @@ public class AreaOfEffect : MonoBehaviour
 {
     [SerializeField] int damage = 200;
     [SerializeField] float lifeTime = 0.5f;
-    [SerializeField] float radius = 5f;
-
-    public int GetDamage()
-    {
-        return damage;
-    }
 
     private void Start()
     {
-        Destroy(gameObject,lifeTime);
-
-      
+        Destroy(gameObject, lifeTime);
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
+        Debug.Log("Triggered with " + other.gameObject.name);
         if (other.CompareTag("Enemy"))
         {
-            other.TryGetComponent(out Health enemyHealth);
-            enemyHealth.TakeDamage(damage);
-        }  
-
+            //Health enemyHealth;
+            if (other.TryGetComponent(out Health enemyHealth))
+            {
+               enemyHealth.TakeDamage(damage);
+                Debug.Log("Damage dealt to " + other.gameObject.name);
+            }
+            else
+            {
+                Debug.Log("No Health component found on " + other.gameObject.name);
+            }
+        }
+        else
+        {
+            Debug.Log(other.gameObject.name + " is not tagged as Enemy");
+        }
     }
-
-
-    private void OnDrawGizmos()
-    {
-        Gizmos.DrawSphere(transform.position, radius);
-    }
-
-
-
-
 }
