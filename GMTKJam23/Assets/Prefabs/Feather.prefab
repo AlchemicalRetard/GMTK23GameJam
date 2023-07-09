@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 16659489050878700}
   - component: {fileID: -1261740096462280745}
   - component: {fileID: 902888190817835152}
+  - component: {fileID: 2163410320882438905}
   m_Layer: 0
   m_Name: Feather
   m_TagString: Untagged
@@ -27,14 +28,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4000799729521079191}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: 0.10223182, w: -0.99476063}
   m_LocalPosition: {x: 1.0843602, y: 0.24173097, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -11.735}
 --- !u!212 &8151911652231930956
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -76,8 +77,7 @@ SpriteRenderer:
   m_SortingLayerID: -1869315837
   m_SortingLayer: 1
   m_SortingOrder: 5
-  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b,
-    type: 3}
+  m_Sprite: {fileID: -1294904042, guid: de06414fd78fc3e43916b47fda98843d, type: 3}
   m_Color: {r: 1, g: 0.9637088, b: 0.514151, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -121,6 +121,7 @@ MonoBehaviour:
   projectileLifetime: 2
   moveSpeed: 3
   damage: 100
+  areaOfEffectExplosion: {fileID: 0}
 --- !u!50 &902888190817835152
 Rigidbody2D:
   serializedVersion: 4
@@ -142,3 +143,23 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
+--- !u!95 &2163410320882438905
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4000799729521079191}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0

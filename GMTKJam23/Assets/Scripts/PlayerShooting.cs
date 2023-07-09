@@ -24,6 +24,7 @@ public class PlayerShooting : MonoBehaviour
     void Start()
     {
         cam = Camera.main;
+
     }
 
     // Update is called once per frame
@@ -39,6 +40,7 @@ public class PlayerShooting : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.E))
         {
+            
             // shoot a bomb missile thing which then lands on mouseClick position
             shootDirection = (mousePos - transform.position).normalized;
             SpawnEggMissile();

@@ -87,7 +87,6 @@ public class Projectile : MonoBehaviour
             if (isMissile)
             {
                 var areaOfEffectFX = Instantiate(areaOfEffectExplosion, transform.position, Quaternion.identity).GetComponent<AreaOfEffect>();
-                enemyHealth.TakeDamage(areaOfEffectFX.GetDamage());
 
                 Destroy(areaOfEffectFX, 0.5f);
             }
