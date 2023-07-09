@@ -18,11 +18,13 @@ public class PlayerShooting : MonoBehaviour
     [SerializeField] Vector3 mousePos;
     [SerializeField] Vector3 shootDirection;
 
+    public AbilityCooldown cooldownTime;
     Camera cam;
 
     // Start is called before the first frame update
     void Start()
     {
+        cooldownTime = GetComponent<AbilityCooldown>();
         cam = Camera.main;
 
     }
@@ -38,7 +40,7 @@ public class PlayerShooting : MonoBehaviour
             shootDirection = (mousePos - transform.position).normalized;
             SpawnFeatherBullet();
         }
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKeyDown(KeyCode.E)&& !cooldownTime.isEggCooldown)
         {
             
             // shoot a bomb missile thing which then lands on mouseClick position
@@ -49,13 +51,14 @@ public class PlayerShooting : MonoBehaviour
 
     void SpawnFeatherBullet()
     {
-        var bullet = Instantiate(featherBullet,transform.position,transform.rotation).GetComponent<Projectile>();
+        var bullet = Instantiate(featherBullet, transform.position, transform.rotation).GetComponent<Projectile>();
         bullet.InitProjectile(mousePos, shootDirection, bulletSpeed);
     }
 
     private void SpawnEggMissile()
     {
         var missile = Instantiate(eggMissile, transform.position, transform.rotation).GetComponent<Projectile>();
-        missile.InitProjectile(mousePos, shootDirection, missileSpeed,true);    
+        missile.InitProjectile(mousePos, shootDirection, missileSpeed, true);
     }
 }
+
