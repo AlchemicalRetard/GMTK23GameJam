@@ -35,6 +35,8 @@ public class PlayerMovement : MonoBehaviour
         moveDirection.y = Input.GetAxisRaw("Vertical");
         moveDirection.x = Input.GetAxisRaw("Horizontal");
 
+        moveDirection = moveDirection.normalized;
+
         if (moveDirection.x == 0 && moveDirection.y == 0)
         {
             anim.SetBool("isWalking", false);
