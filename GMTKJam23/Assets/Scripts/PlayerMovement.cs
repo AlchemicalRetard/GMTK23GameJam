@@ -35,13 +35,13 @@ public class PlayerMovement : MonoBehaviour
         moveDirection.y = Input.GetAxisRaw("Vertical");
         moveDirection.x = Input.GetAxisRaw("Horizontal");
 
-        if (!Equals(moveDirection, Vector3.zero))
+        if (moveDirection.x == 0 && moveDirection.y == 0)
         {
-            anim.SetBool("isWalking", true);
+            anim.SetBool("isWalking", false);
         }
         else
         {
-            anim.SetBool("isWalking", false);
+            anim.SetBool("isWalking", true);
         }
 
         if (moveDirection.x < 0)
