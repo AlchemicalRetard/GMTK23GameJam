@@ -101,10 +101,16 @@ public class Projectile : MonoBehaviour
        
     }
 
-
     void DestroyProjectile()
     {
         gameObject.SetActive(false);
+        
+        if (isMissile)
+        {
+            var areaOfEffectFX = Instantiate(areaOfEffectExplosion, transform.position, Quaternion.identity).GetComponent<AreaOfEffect>();
+
+            Destroy(areaOfEffectFX, 0.5f);
+        }
 
         Destroy(this.gameObject,3f);
     }
