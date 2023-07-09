@@ -52,18 +52,20 @@ public class Health : MonoBehaviour
 
     void Die()
     {
-        gameObject.SetActive(false);
-
         // Death particle Effect
 
-        var dethFX = Instantiate(deathFX, transform.position, Quaternion.identity) as GameObject;
-        Destroy(dethFX, deathFXDestroyDelay);
         if (!isPlayer)
         {
+            gameObject.SetActive(false);
+            var dethFX = Instantiate(deathFX, transform.position, Quaternion.identity) as GameObject;
+            Destroy(dethFX, deathFXDestroyDelay);
+            GameManager.Instance.AddScore(3);
             Destroy(gameObject,3f);
+
         }
         else
         {
+            GameManager.Instance.EnableDeathUI();
             this.GetComponent<PlayerMovement>().Die();
         }
 

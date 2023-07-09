@@ -52,6 +52,6 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 0c45e031d5eb5a34b8ec457428b37cc1, type: 3}
   - {fileID: 8300000, guid: efdda1fb578c64a4f866cda1499ab4b6, type: 3}
   enemyDeathSound: {fileID: 8300000, guid: 95904b6a91a49334c93dff6b85b1da9e, type: 3}
-  gameMusic: {fileID: 8300000, guid: f8d9c415c400e674e990c4124984d453, type: 3}
+  gameMusic: {fileID: 8300000, guid: 4838a494a5352a54f9c8025cf0f4034a, type: 3}
   rageModeLayer: {fileID: 8300000, guid: 95d92827dd7e97e499634647a3b5474d, type: 3}
   menuMusic: {fileID: 8300000, guid: f8d9c415c400e674e990c4124984d453, type: 3}
