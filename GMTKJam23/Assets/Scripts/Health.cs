@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Health : MonoBehaviour
@@ -11,13 +12,22 @@ public class Health : MonoBehaviour
     [SerializeField] bool isPlayer;
     //public HealthBarBehaviour healthBar;
 
+    HealthBarUI healthBarUI;
+
     bool isInvincible;
 
     private void Start()
     {
         currentHealth = maxHealth;
-        // Set initial health in the health bar at start
-       // healthBar.SetHealth(currentHealth, maxHealth);
+
+        if (!isPlayer)
+        {
+            healthBarUI = GetComponentInChildren<HealthBarUI>();
+        
+            // Set initial health in the health bar at start
+            healthBarUI.SetHealth(currentHealth, maxHealth);
+        }
+
 
     }
 
@@ -34,7 +44,15 @@ public class Health : MonoBehaviour
             currentHealth -= damage;
 
             if (isPlayer) { this.GetComponent<PlayerMovement>().GetHit(); }
-            else{ this.GetComponent<Enemy>().GetHit(); }
+            else{ 
+                //if(currentHealth == (maxHealth - damage))
+                //{
+                //    this.GetComponentInChildren<HealthBarBehaviour>().gameObject.SetActive(true);
+                //}
+                this.GetComponent<Enemy>().GetHit();
+                healthBarUI.SetHealth(currentHealth,maxHealth);
+            }
+
         }
     }
 
@@ -46,8 +64,15 @@ public class Health : MonoBehaviour
 
         //var dethFX = Instantiate(deathFX, transform.position, Quaternion.identity) as GameObject;
         //Destroy(dethFX, deathFXDestroyDelay);
+        if (!isPlayer)
+        {
+            Destroy(gameObject,3f);
+        }
+        else
+        {
+            this.GetComponent<PlayerMovement>().Die();
+        }
 
-        Destroy(gameObject,3f);
     }
 
 
