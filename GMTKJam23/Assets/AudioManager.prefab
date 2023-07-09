@@ -46,7 +46,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   featherShootSound: {fileID: 8300000, guid: 22d6eb02e4309a942bd677b6b7e16581, type: 3}
   eggShootSound: {fileID: 8300000, guid: 622cf8039d61981428cc6e7b299a0989, type: 3}
-  eggExplosionSound: {fileID: 0}
+  eggExplosionSound: {fileID: 8300000, guid: 4b797fb7a43752c4c8efc909329c555c, type: 3}
   deathMusic: {fileID: 8300000, guid: 2aadbfa8f9427b14a83c78930aa8b3ce, type: 3}
   noiseLibrary:
   - {fileID: 8300000, guid: 0c45e031d5eb5a34b8ec457428b37cc1, type: 3}

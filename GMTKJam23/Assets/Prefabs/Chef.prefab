@@ -157,7 +157,7 @@ MonoBehaviour:
   radius: 0.62
   height: 5
   canMove: 1
-  maxSpeed: 0.3
+  maxSpeed: 2
   gravity: {x: 0, y: 0, z: 0}
   groundMask:
     serializedVersion: 2
@@ -176,9 +176,9 @@ MonoBehaviour:
   targetCompatibility: {fileID: 0}
   maxAcceleration: -2.5
   rotationSpeed: 360
-  slowdownDistance: 0.6
+  slowdownDistance: 0.69
   pickNextWaypointDist: 2
-  endReachedDistance: 0.5
+  endReachedDistance: 0.78
   alwaysDrawGizmos: 0
   slowWhenNotFacingTarget: 1
   whenCloseToDestination: 0
@@ -257,7 +257,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.3577203, y: 1.2637728}
+  m_Size: {x: 2.0738614, y: 1.2637728}
   m_EdgeRadius: 0
 --- !u!50 &6590247292446552824
 Rigidbody2D:
