@@ -17861,6 +17861,7 @@ MonoBehaviour:
   missileSpeed: 5
   mousePos: {x: 0, y: 0, z: 0}
   shootDirection: {x: 0, y: 0, z: 0}
+  cooldownTime: {fileID: 0}
 --- !u!114 &901373519
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -31310,6 +31311,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6360002635506726508, guid: c88bbf3a52ed1144082999459db5db0f,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6360002635506726508, guid: c88bbf3a52ed1144082999459db5db0f,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8984957559137956226, guid: c88bbf3a52ed1144082999459db5db0f,
+        type: 3}
+      propertyPath: maxSpeed
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 8984957559137956227, guid: c88bbf3a52ed1144082999459db5db0f,
         type: 3}
       propertyPath: target
@@ -33718,6 +33734,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8984957559137956226, guid: c88bbf3a52ed1144082999459db5db0f,
+        type: 3}
+      propertyPath: maxSpeed
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 8984957559137956227, guid: c88bbf3a52ed1144082999459db5db0f,
         type: 3}
@@ -39604,3 +39625,4 @@ MonoBehaviour:
   eggText: {fileID: 1278747969}
   eggKey: 101
   eggCooldown: 5
+  isEggCooldown: 0
