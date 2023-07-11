@@ -9,7 +9,7 @@ public class EnemySpawner : MonoBehaviour
     public GameObject[] enemyPrefabs;
     public SpawnPointManager spawnPointManager;
     public int numberOfWaves = 5;
-    private float spawnInterval = 5.0f;
+    private float spawnInterval = 2f;
     private int currentWave = 1;
 
     void Start()
@@ -19,7 +19,7 @@ public class EnemySpawner : MonoBehaviour
 
     IEnumerator SpawnEnemies()
     {
-        while (currentWave <= numberOfWaves)
+        while (true)
         {
             foreach (var spawnPoint in spawnPointManager.spawnPoints)
             {
@@ -30,7 +30,6 @@ public class EnemySpawner : MonoBehaviour
                 enemy.target = FindObjectOfType<PlayerMovement>().transform;
                 yield return new WaitForSeconds(spawnInterval);
             }
-            currentWave++;
             spawnInterval *= 0.9f; // decrease the spawn interval by 10% with each wave
         }
     }
